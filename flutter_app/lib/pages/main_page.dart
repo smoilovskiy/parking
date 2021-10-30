@@ -38,10 +38,13 @@ class MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Vehicles"),
-        //onPressed: refreshVehicles,
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
+          FlatButton(
+            onPressed: refreshVehicles,
+            child: Text('Refresh'),
+          ),
+          FlatButton(
+            child: Text('Add vehicle'),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return AddVehiclePage();
@@ -55,7 +58,7 @@ class MainPageState extends State<MainPage> {
         child: ListView.separated(
           itemCount: vehicles.length,
           itemBuilder: (context, i) => ListTile(
-            leading: Icon(Icons.person),
+            leading: Icon(Icons.car_rental),
             title: Text(vehicles[i].make),
             subtitle: Text(vehicles[i].model),
             trailing: Text(vehicles[i].licensePlate),

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/modules/http.dart';
 
-class AddVehiclePage extends StatefulWidget
-{
+class AddVehiclePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return AddVehiclePageState();
   }
 }
-class AddVehiclePageState extends State<AddVehiclePage>
-{
+
+class AddVehiclePageState extends State<AddVehiclePage> {
   TextEditingController makeController = TextEditingController();
   TextEditingController modelController = TextEditingController();
   TextEditingController licensePlateController = TextEditingController();
@@ -18,16 +17,16 @@ class AddVehiclePageState extends State<AddVehiclePage>
   createVehicle() async {
     var result = await http_post("create-vehicle", {
       "make": makeController.text,
-      "model" : modelController.text,
-      "licensePlate" : licensePlateController.text
+      "model": modelController.text,
+      "licensePlate": licensePlateController.text
     });
-    if(result.ok)
-    {
+    if (result.ok) {
       setState(() {
         response = result.data['status'];
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,23 +37,15 @@ class AddVehiclePageState extends State<AddVehiclePage>
         children: <Widget>[
           TextField(
             controller: makeController,
-            decoration: InputDecoration(
-              hintText: "Make"
-            ),
+            decoration: InputDecoration(hintText: "Make"),
           ),
-
           TextField(
             controller: modelController,
-            decoration: InputDecoration(
-              hintText: "Model"
-            ),
+            decoration: InputDecoration(hintText: "Model"),
           ),
-
           TextField(
             controller: licensePlateController,
-            decoration: InputDecoration(
-              hintText: "licensePlate"
-            ),
+            decoration: InputDecoration(hintText: "licensePlate"),
           ),
           RaisedButton(
             child: Text("Create"),
@@ -62,9 +53,7 @@ class AddVehiclePageState extends State<AddVehiclePage>
           ),
           Text(response),
         ],
-        
       ),
-      
     );
   }
 }
