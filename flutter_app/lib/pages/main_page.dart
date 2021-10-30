@@ -18,6 +18,12 @@ class Vehicle {
 }
 
 class MainPageState extends State<MainPage> {
+  @override
+  void initState() {
+    super.initState();
+    refreshVehicles();
+  }
+
   List<Vehicle> vehicles = [];
   Future<void> refreshVehicles() async {
     var result = await http_get('vehicles');
