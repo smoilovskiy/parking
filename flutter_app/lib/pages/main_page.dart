@@ -39,6 +39,9 @@ class MainPageState extends State<MainPage> {
     }
   }
 
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +70,17 @@ class MainPageState extends State<MainPage> {
             leading: Icon(Icons.car_rental),
             title: Text(vehicles[i].make),
             subtitle: Text(vehicles[i].model),
-            trailing: Text(vehicles[i].licensePlate),
+            // trailing: Text(vehicles[i].licensePlate),
+            trailing: Wrap(
+              spacing: 12, // space between two icons
+              children: <Widget>[
+                Text(vehicles[i].licensePlate),
+                IconButton(
+                  icon: Icon(Icons.delete_forever),
+                  onPressed: () {},
+                ),
+              ],
+            ),
           ),
           separatorBuilder: (context, i) => Divider(),
         ),
