@@ -34,19 +34,6 @@ class EditVehiclePageState extends State<EditVehiclePage> {
     }
   }
 
-  // getVehicle() async {
-  //   var result = await http_get('vehicles', {
-  //     "make": makeController.text,
-  //     "model": modelController.text,
-  //     "licensePlate": licensePlateController.text
-  //   });
-  //   if (result.ok) {
-  //     setState(() {
-  //       response = result.data['status'];
-  //     });
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

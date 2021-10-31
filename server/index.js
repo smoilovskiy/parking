@@ -21,6 +21,20 @@ app.post('/create-vehicle', async (req, res, next) => {
   next();
 });
 
+//edit vehicle
+app.post('/edit-vehicle', async (req, res, next) => {
+  const id = req.body.id;
+  const make = req.body.make;
+  const model = req.body.model;
+  const licensePlate = req.body.licensePlate;
+
+  await db.query("UPDATE vehicles SET make=?, model=?, licensePlate=? WHERE id=?", [make, model, licensePlate, id]);
+
+  console.log('Post Ok')
+  res.json({ status: "OK" });
+  next();
+});
+
 //delete vehicle
 app.post('/delete-vehicle', async (req, res, next) => {
   const id = req.body.id;

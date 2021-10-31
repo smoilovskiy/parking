@@ -37,15 +37,15 @@ class AddVehiclePageState extends State<AddVehiclePage> {
         children: <Widget>[
           TextField(
             controller: makeController,
-            decoration: InputDecoration(hintText: "  Make"),
+            decoration: InputDecoration(hintText: "Make"),
           ),
           TextField(
             controller: modelController,
-            decoration: InputDecoration(hintText: "  Model"),
+            decoration: InputDecoration(hintText: "Model"),
           ),
           TextField(
             controller: licensePlateController,
-            decoration: InputDecoration(hintText: "  licensePlate"),
+            decoration: InputDecoration(hintText: "licensePlate"),
           ),
           RaisedButton(
             child: Text("Create"),
