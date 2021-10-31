@@ -88,19 +88,16 @@ class MainPageState extends State<MainPage> {
                 IconButton(
                     icon: Icon(Icons.delete_forever),
                     onPressed: () {
-                      // var result =
                       http_post('delete-vehicle', {"id": vehicles[i].id});
                       refreshVehicles;
                     }),
                 IconButton(
-                  icon: Icon(Icons.edit),
-                  onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return EditVehiclePage();
-                    }));
-                  },
-                )
+                    icon: Icon(Icons.edit),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              EditVehiclePage(vehicles[i].id, vehicles[i].make, vehicles[i].model, vehicles[i].licensePlate)));
+                    }),
               ],
             ),
           ),

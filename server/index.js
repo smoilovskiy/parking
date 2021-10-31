@@ -8,6 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//add vehicle
 app.post('/create-vehicle', async (req, res, next) => {
   const make = req.body.make;
   const model = req.body.model;
