@@ -12,6 +12,9 @@ Please check<br>
 dependencies: in<br>
 /server/package.json
 
+for start server type<br>
+node index.js
+
 
 ## Front-end:
 
