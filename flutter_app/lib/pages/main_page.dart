@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/modules/http.dart';
 import 'package:flutter_app/pages/add_vehicle_page.dart';
+import 'package:flutter_app/pages/edit_vehicle_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -39,8 +40,17 @@ class MainPageState extends State<MainPage> {
     }
   }
 
-
-  
+  // String response = "";
+  // deleteVehicle(vehicle_id) async {
+  //   var result = await http_post('delete-vehicle', {
+  //     "id" : vehicle_id
+  //   }); //[vehicle_id]
+  //   if (result.ok) {
+  //     setState(() {
+  //       response = result.data['status'];
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -72,13 +82,25 @@ class MainPageState extends State<MainPage> {
             subtitle: Text(vehicles[i].model),
             // trailing: Text(vehicles[i].licensePlate),
             trailing: Wrap(
-              spacing: 12, // space between two icons
+              spacing: 12,
               children: <Widget>[
                 Text(vehicles[i].licensePlate),
                 IconButton(
-                  icon: Icon(Icons.delete_forever),
-                  onPressed: () {},
-                ),
+                    icon: Icon(Icons.delete_forever),
+                    onPressed: () {
+                      // var result =
+                      http_post('delete-vehicle', {"id": vehicles[i].id});
+                      refreshVehicles;
+                    }),
+                IconButton(
+                  icon: Icon(Icons.edit),
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return EditVehiclePage();
+                    }));
+                  },
+                )
               ],
             ),
           ),

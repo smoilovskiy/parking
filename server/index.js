@@ -20,6 +20,17 @@ app.post('/create-vehicle', async (req, res, next) => {
   next();
 });
 
+//delete vehicle
+app.post('/delete-vehicle', async (req, res, next) => {
+  const id = req.body.id;
+  
+  await db.query("DELETE FROM vehicles WHERE id=?", [id]);
+
+  console.log('Post Ok')
+  res.json({ status: "OK" });
+  next();
+});
+
 
 app.get('/vehicles', async (req, res, next) => {
 
