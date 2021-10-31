@@ -1,11 +1,11 @@
 # parking
-
+<hr>
 Back-end:
 node.js v14.17.0
 
 Before use:
 
-npm install express mysql2
+npm install express mysql2<br>
 npm install cors --save
 
 Please check 
